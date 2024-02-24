@@ -30,8 +30,7 @@ public class Human extends Creature {
 
         if (animal.isHungry()){
             System.out.println(animal.getName() + " is hungry");
-        } else {
-            System.out.println(animal.getName() + "is not hungry");
+
         }
 
     }
