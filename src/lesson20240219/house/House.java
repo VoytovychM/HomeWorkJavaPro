@@ -14,7 +14,7 @@ public class House {
 
 //        Robot.printTotalRobotCount();
 //
-//        Robot robot1 = new Robot("Valuum cleaner", "Robot cleaner");
+        Robot robot1 = new Robot("AI", "Robot");
 //        Robot robot2 = new Robot("Washing mashine", "Robot to wash something");
 //        robot1.printCurrentRobotInfo();
 //        robot2.printCurrentRobotInfo();
@@ -35,14 +35,32 @@ public class House {
 
 //        Animal animal = new Animal("Jack", "grey", 1);
 
-        Human human = new Human("Harry");
+        Human human = new Human("Harry", 35);
 //        human.feedAnimal(dog);
         human.feedAnimal(dog, cat1, cat2);
         dog.play(cat1);
         cat1.play(dog);
 
+        human.walk(cat1);
         human.walk(dog);
 
+        human.play(dog);
+        dog.play(robot1);
+
+        robot1.walk(cat2);
+        human.walk(cat2);
+
+        System.out.println(human.getName() + " age is " + human.getAge());
+        human.grow();
+        System.out.println(human.getName() + " is getting older for one year: " + human.getAge());
+
+        System.out.println(cat2.getName() + " age is " + cat2.getAge());
+        cat2.grow();
+        System.out.println(cat2.getName() + " is getting older for one year: " + cat2.getAge());
+
+        Mouse mouse = new Mouse("Mikki");
+        cat1.catchMouse(mouse);
+        robot1.catchMouse(mouse);
     }
 
 

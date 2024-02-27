@@ -3,6 +3,7 @@ package lesson20240219.house;
 public class Dog extends Animal {
 
     public Dog(String name, String colour, int age) {
+
         super(name, colour, age);
     }
 
@@ -16,10 +17,12 @@ public class Dog extends Animal {
     }
 
     public void play(Creature  another){
-        Animal anotherAnimal = (Animal) another;
-        System.out.println("Dog " + getName() + " plays with  " + anotherAnimal.getName() );
+
+        System.out.println("Dog " + getName() + " plays with  " + another.getName() );
         if(another instanceof Cat ){
             this.bark();
+        } else {
+            super.play(another);
         }
     }
 

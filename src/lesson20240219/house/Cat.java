@@ -1,16 +1,19 @@
 package lesson20240219.house;
 
-public class Cat extends Animal {
+public class Cat extends Animal implements MouseCatcher {
 
     public Cat(String catName){
+
         this(catName, "white", 1);
     }
 
     public Cat(String catName, String catColour, int catAge){
+
         super(catName, catColour, catAge);
     }
 
     public void sayHello(){
+
         System.out.println("Meow! I'm cat. My name is " + super.getName());
     }
 
@@ -27,5 +30,10 @@ public class Cat extends Animal {
         if (another instanceof Dog){
             run();
         }
+    }
+
+    @Override
+    public void catchMouse(Mouse mouse) {
+        System.out.println("Cat " + this.getName() + " is catching mouse " + mouse.getName());
     }
 }

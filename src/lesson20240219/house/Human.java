@@ -1,11 +1,15 @@
 package lesson20240219.house;
 
-public class Human extends Creature {
+import static java.lang.System.*;
+
+public class Human extends Creature implements Ageable {
 
     private String name;
+    private int age;
 
-    public Human(String name) {
-        this.name = name;
+    public Human(String name, int age) {
+        super(name);
+        this.age = age;
     }
 
     public void feedAnimal(Animal animal) {
@@ -18,20 +22,33 @@ public class Human extends Creature {
         }
     }
 
-
-    @java.lang.Override
+    @Override
     public void sayHello() {
+        System.out.println("Hello! I'm human. My name is" + name);
+    }
+
+    public void walk(Animal animal) {
+        String animalType = "";
+        if(animal instanceof Cat){
+            animalType = "Cat";
+        } else if(animal instanceof Dog) {
+            animalType = "Dog";
+        }
+        System.out.println("Human " + this.getName() + " is walking with " + animalType + " " + animal.getName());
+        animal.setHungry(true);
+    }
+
+    @Override
+    public void grow() {
+      age++;
 
     }
-    public void walk(Animal animal){
-        animal.setHungry(true);
-        System.out.println(animal.getName() + " walked for one hour ");
 
+    public int getAge() {
+        return age;
+    }
 
-        if (animal.isHungry()){
-            System.out.println(animal.getName() + " is hungry");
-
-        }
-
+    public void setAge(int age) {
+        this.age = age;
     }
 }
