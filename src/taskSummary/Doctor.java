@@ -7,6 +7,7 @@ public class Doctor implements CurableSkills {
         System.out.println("Doctor cured " + character + ".");
     }
 
+
     public void increaseForce (Superhero character){
         int newForce = (int) (character.countForce() + character.countForce() * 0.1 * character.getProtection().getLevel());
         character.getWeapon().setForce(newForce);
