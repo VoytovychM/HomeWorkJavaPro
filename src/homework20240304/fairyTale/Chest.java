@@ -28,20 +28,10 @@ public class Chest {
         return new Chest(newHare);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-        Chest chest = (Chest) o;
-
-        return this.hare.equals(chest.hare);
+    public Hare getHare() {
+        return hare;
     }
+}
 
 
-    @Override
-    public int hashCode() {
-        return this.hashCode();
-}
-}
+

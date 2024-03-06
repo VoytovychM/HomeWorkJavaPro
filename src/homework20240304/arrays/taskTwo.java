@@ -6,7 +6,7 @@ public class taskTwo {
 
     public static void main(String[] args) {
 
-        String[] data = {"One", "Two", "Three", "Four", "Five"};
+        String[] data = {"One", "Two", "Three"};
         reverse(data);
         System.out.println(Arrays.toString(data));
 
