@@ -2,10 +2,11 @@ package gamevscomputer;
 
 import java.util.Scanner;
 
-import static start.gamevscomputer.GameChoice.*;
+import static gamevscomputer.GameChoice.*;
+
 
 public class MashaPlayer extends Player{
-    @Override
+
     public void makeRandomChoice() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter your choice: Rock, Scissors, Paper");

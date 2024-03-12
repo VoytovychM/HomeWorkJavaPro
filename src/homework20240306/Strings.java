@@ -34,7 +34,7 @@ public class Strings {
         List<String> threeCharString = new ArrayList<>(strings.size());
 
         for (String str : strings) {
-            if (str.length() <= 3) {
+            if (str.length() > 3) {
                 threeCharString.add(str);
             }
 
