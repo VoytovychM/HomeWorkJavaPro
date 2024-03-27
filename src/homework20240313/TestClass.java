@@ -22,4 +22,9 @@ public class TestClass {
                 "field='" + field + '\'' +
                 '}';
     }
+
+    public Object getName() {
+
+        return null;
+    }
 }

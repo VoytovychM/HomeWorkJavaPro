@@ -47,9 +47,12 @@ public class TreeSetTask {
            System.out.println(num);
        }
         System.out.println("---------------");
+//       reversedSet.headSet(7);
        for(int num: treeSet){
            if(num < 7){
                System.out.println(num);
+           } else {
+               break;
            }
        }
     }

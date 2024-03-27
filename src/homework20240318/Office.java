@@ -28,7 +28,7 @@ public class Office {
 
            @Override
            public void haveRest() {
-               System.out.println("QA tester idle around");
+               System.out.println("QA tester idles around");
            }
        };
        JobActions manager = new JobActions() {

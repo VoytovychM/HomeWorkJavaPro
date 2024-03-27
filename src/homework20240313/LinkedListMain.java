@@ -1,7 +1,6 @@
 package homework20240313;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class LinkedListMain {
     public static void main(String[] args) {
@@ -37,10 +36,10 @@ public class LinkedListMain {
         listClass.add(new TestClass("Cat"));
         listClass.add (new TestClass("Fish"));
 
-        for(TestClass testClass: listClass){
-            if(testClass.getField().length() <= 3){
-                listClass.remove(testClass);
-            }
+        Iterator<TestClass> iterator = listClass.iterator();
+        while(iterator.hasNext()){
+            TestClass current = iterator.next();
+            if(current.getField().equals("Cat")) iterator.remove();
         }
         System.out.println(listClass);
 
@@ -55,7 +54,7 @@ public class LinkedListMain {
        integerList.add(2);
        integerList.add(2);
        integerList.add(0);
-       System.out.println(integerList);
+       System.out.println(Collections.binarySearch(integerList, 2));
 
        int element = 2;
        int[] result = findFirstAndLastIndex(integerList, element);
@@ -75,6 +74,8 @@ public class LinkedListMain {
            }
        }
            return new int[]{firstIndex, lastIndex};
+
+
     }
 
 }

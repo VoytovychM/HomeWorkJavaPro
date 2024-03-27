@@ -22,7 +22,9 @@ public class Point implements Comparable<Point> {
 
     @Override
     public int compareTo(Point p) {
-        return Integer.compare(this.y, p.y);
+        int result = Integer.compare(this.x, p.x);
+        if (result == 0)Integer.compare(this.y, p.y);
+        return result;
     }
 
     @Override

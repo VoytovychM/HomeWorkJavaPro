@@ -26,10 +26,18 @@ public class PointMain {
         treeSet.addAll(pointList);
         System.out.println(treeSet);
 
-        Set<Point> treeSetY = new TreeSet<>();
+        Set<Point> treeSetY = new TreeSet<>(new Comparator<Point>() {
+            @Override
+            public int compare(Point o1, Point o2) {
+                return Integer.compare(o1.getY(), o2.getY());
+            }
+        });
         treeSetY.addAll(pointList);
+        System.out.println(treeSetY);
 
-
+       Set<Point> hashSet = new HashSet<>(); // equals and hashcode
+       hashSet.addAll(pointList);
+        System.out.println(hashSet);
     }
-
+// compare To() must consistent hashCode(), equals()
 }

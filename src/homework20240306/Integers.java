@@ -10,7 +10,7 @@ public class Integers {
         List<Integer> integerList = new ArrayList<>(3);
         integerList.add(59);
         integerList.add(27);
-        integerList.add(66);
+        integerList.add(-66);
         integerList.add(100);
         int q = 2;
 
@@ -33,7 +33,7 @@ public class Integers {
     }
 
     public static Integer calculateSum(List<Integer> integerList) {
-        int sum = 0;
+        int sum = integerList.get(0);
         for (Integer i : integerList) {
             sum += i;
         }
