@@ -5,6 +5,10 @@ import java.util.Arrays;
 public class School {
     public static void main(String[] args) {
 
+
+
+
+
         Student student1 = new Student("Tom");
         Student student2 = new Student("Jack");
         Student student3 = new Student("Flora");
