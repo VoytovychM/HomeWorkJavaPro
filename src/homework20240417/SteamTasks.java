@@ -3,6 +3,7 @@ package homework20240417;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -37,7 +38,7 @@ public class SteamTasks {
 
     }
 
-    public static List<String> method(List<String> strings) {
+    public static List<String> method(List<String> strings) { // 0(n ^2) квадратичная сложность
         List result = new ArrayList<>();
         for (String s : strings) {
             if (!result.contains(s)) {
@@ -46,8 +47,8 @@ public class SteamTasks {
         }
         return result;
     }
-    private static List<String> taskTwoB(List<String> words) {
-        List<String> distinct = words.stream().distinct().toList();
+    private static List<String> taskTwoB(List<String> words) { // O(n)
+        List<String> distinct = words.stream().distinct().collect(Collectors.toCollection(ArrayList::new));
         return distinct;
     }
 
@@ -67,7 +68,7 @@ public class SteamTasks {
     }
     //Посчитать количество людей с именем "Tom" в списке имен
     public static void taskOneB(List<Human> humanList) {
-        Integer countOfNamesTom = humanList.stream().filter(human -> human.name.equals("Tom")).toList().size();
+        Long countOfNamesTom = humanList.stream().filter(human -> human.name.equals("Tom")).count();
         System.out.println(countOfNamesTom);
 
     }

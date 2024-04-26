@@ -20,7 +20,11 @@ public class ReduceMethod {
 
 
     public static Integer reduce(List<Integer> list, BinaryOperator<Integer> operator, Integer basicValue) {
-        Integer result = list.stream().reduce(basicValue,operator);
+//        Integer result = list.stream().reduce(basicValue,operator);
+        Integer result = basicValue;
+        for (Integer elem:list){
+            result= operator.apply(result,elem);
+        }
         return result;
     }
 }
