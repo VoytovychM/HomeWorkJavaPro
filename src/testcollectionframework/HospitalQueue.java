@@ -54,7 +54,7 @@ public class HospitalQueue {
         }
     }
     static class Schedule{
-        private List<Appointment> apointmentList = null;
+        private List<Appointment> apointmentList;
 
         public Schedule() {
             this.apointmentList = new ArrayList<>();

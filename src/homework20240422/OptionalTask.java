@@ -14,6 +14,7 @@ public class OptionalTask {
         List<String> result = list.stream()
                 .filter(Optional::isPresent).map(Optional::get).toList();
 
+//        List<String> result = list.stream().flatMap(Optional::stream).toList();
         System.out.println(result);
     }
 }

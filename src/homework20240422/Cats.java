@@ -29,7 +29,7 @@ public class Cats {
 
         // Получить Map возраст / количество белых кошек данного возраста
 
-        Map<Integer, Long> countOfWhiteByAge = catList.stream().filter(c-> c.getColor().equals("white")).collect(Collectors.groupingBy(Cat::getAge, Collectors.counting()));
+        Map<Integer, Integer> countOfWhiteByAge = catList.stream().collect(Collectors.toMap(Cat::getAge, cat -> cat.getColor().equals("white") ? 1 : 0, Integer::sum));
         System.out.println(countOfWhiteByAge);
 
 
