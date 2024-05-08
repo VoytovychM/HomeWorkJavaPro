@@ -1,0 +1,3 @@
+Write a program that would find all text files of extension .txt in a given folder and its subfolders
+and output their contents to the console.
+The solution can be based on the lesson20240506.directories.ListFileTree.java class

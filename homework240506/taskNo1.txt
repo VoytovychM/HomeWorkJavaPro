@@ -1,0 +1,4 @@
+A text file is available. Output:
+file size in bytes, KB, MB;
+number of lines in the file;
+number of characters in the file.
