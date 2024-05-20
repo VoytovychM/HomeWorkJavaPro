@@ -32,7 +32,7 @@ public class RegexTasks {
 
 
         // 2. Имеется текст "Php is the best programming language in the world. I study php." Замените в нем php на java.
-        String text = "Php is the best programming language in the world. I study php. I love php.";
+        String text = "Php is the best programming language in the world. I study php. Love it.";
         String regex2 = "(?i)php";
         String updatedText = text.replaceFirst(regex2, "Java").replaceAll(regex2,"java");
         System.out.println(updatedText);
