@@ -7,43 +7,39 @@ public class MyQueue {
     private int tail;
     private int numberOfValues;
 
-
     public MyQueue() {
         queueArray = new int[maxsize];
         head = 0;
         tail = -1;
         numberOfValues = 0;
-
     }
 
     public void push(int v) {
-        if(tail == maxsize - 1){
+        if (numberOfValues == maxsize) {
             System.out.println("Queue is full");
             return;
         }
-        queueArray[++tail] = v;
+        tail = (tail + 1) % maxsize;
+        queueArray[tail] = v;
         numberOfValues++;
     }
 
     public int pop() {
-        if(queueArray == null ){
-        System.out.println("Queue is empty");
-        return -1;
-    }
+        if (numberOfValues == 0) {
+            System.out.println("Queue is empty");
+            return -1;
+        }
         int removedValue = queueArray[head];
         head = (head + 1) % maxsize;
-        if(numberOfValues > 0){
-            numberOfValues --;
-        }
-
+        numberOfValues--;
         return removedValue;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return numberOfValues == 0;
+    }
 
 
-        }
 
     public static void main(String[] args) {
        MyQueue myQueue = new MyQueue();
