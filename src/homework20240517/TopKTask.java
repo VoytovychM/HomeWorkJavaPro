@@ -73,7 +73,7 @@ public class TopKTask {
     public static List<Item> topKWithPriorityQueue(List<Item> items, int k) { // O(n * log k)
 
         if(items == null || k <= 0) {
-            return List.of();
+            return List.of(); // return Collections.emptyList();
 
         }
 

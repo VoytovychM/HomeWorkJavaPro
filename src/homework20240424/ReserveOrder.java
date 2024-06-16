@@ -8,9 +8,9 @@ import java.util.List;
 //Написать метод, который принимает список любого типа и возвращает его в виде нового списка с элементами в обратном порядке.
 public class ReserveOrder {
 
-    public static  List<?> reverseOrder (List<?> input){
-        List<?> reverseList = new ArrayList<>(input);
-        Collections.reverse(reverseList);
+    public static  List<?> reverseOrder (List<?> input){ // public static <T> List <T> reverseList (List<T> list) { - этот вариант лучше тк как мы точно знаем какой параметр будет
+        List<?> reverseList = new ArrayList<>(input); // public static void reeverseList (List<?> list) не возвращает новый список
+        Collections.reverse(reverseList); // есть списки неизменяемые и тогда будет выбрасывать exception
         return reverseList;
     }
     public static void main(String[] args) {

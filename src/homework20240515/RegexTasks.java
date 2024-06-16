@@ -14,7 +14,7 @@ public class RegexTasks {
         String regex = "\\b" + Pattern.quote(String.valueOf(letter)) + "\\w*";
         Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(text);
-        while (matcher.find()) {
+        while (matcher.find()) {  //return matcher.results().map(MatchResult::group).toList();
             words.add(matcher.group());
         }
 
@@ -24,7 +24,7 @@ public class RegexTasks {
         // 1. Напишите регулярное выражение, которое соответствует любому номеру телефона согласно формату:
         //телефонный номер состоит из 7 цифр подряд или из 3х цифр, пробела или тире, а затем из 4 цифр (1234567, 123-4567, 123 4567).
 
-        String regex = "\\d{7}|\\d{3}[-\\s]\\d{4}";
+        String regex = "\\d{7}|\\d{3}[-\\s]\\d{4}"; //[\\d]{3} [-\\s]?[\\d]{4}
         System.out.println(Pattern.matches(regex, "1234567"));
         System.out.println(Pattern.matches(regex, "123-4567"));
         System.out.println(Pattern.matches(regex, "123 4567"));

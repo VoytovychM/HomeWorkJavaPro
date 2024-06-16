@@ -25,15 +25,15 @@ public class FileTask {
             System.out.println("Problem with file work: " + exception.getMessage());
         }
 
-        try {
+        try (
             BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file));
-            int charCount = 0;
-            while ((bufferedReader2.read()) != -1) {
-                charCount++;
-            }
-            System.out.println("Number of characters in the file is: " + charCount);
 
-            bufferedReader2.close();
+            ) { int charCount = 0;
+                while ((bufferedReader2.read()) != -1) {
+                    charCount++;
+            System.out.println("Number of characters in the file is: " + charCount);
+                }
+
         } catch (IOException exception) {
             System.out.println("Problem with file work: " + exception.getMessage());
         }

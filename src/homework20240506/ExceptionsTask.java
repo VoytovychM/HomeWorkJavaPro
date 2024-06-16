@@ -28,7 +28,7 @@ public class ExceptionsTask {
 
         private static boolean isLatinCharacters(String str) {
             for (char c : str.toCharArray()) {
-                if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))) {
+                if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))) { // !login.matches ("[a-zA-Z]+"))
                     return false;
                 }
             }

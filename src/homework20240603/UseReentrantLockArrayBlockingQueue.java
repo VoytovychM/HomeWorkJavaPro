@@ -1,44 +1,33 @@
 package homework20240603;
 
-public class UseCustomLinkedBlockingQueue {
+public class UseReentrantLockArrayBlockingQueue {
+
     static class Producer implements Runnable {
-//        CustomLinkedBlockingQueue<String> queue;
-//
-//        public Producer(CustomLinkedBlockingQueue<String> queue) {
-//            this.queue = queue;
-//        }
+        ReentrantLockArrayBlockingQueue<String> queue;
 
-        ReentrantLockLinkedBlockingQueue<String> queue;
-
-        public Producer(ReentrantLockLinkedBlockingQueue<String> queue) {
+        public Producer(ReentrantLockArrayBlockingQueue<String> queue) {
             this.queue = queue;
         }
 
         @Override
         public void run() {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 10; i++) {
                 String data = "Data " + i + "-" + Thread.currentThread().getName();
                 queue.put(data);
                 System.out.println(Thread.currentThread().getName() + " created: " + data);
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+//                try {
+//                    Thread.sleep(5000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
             }
         }
     }
 
     static class Consumer implements Runnable {
-//        CustomLinkedBlockingQueue<String> queue;
-//
-//        public Consumer(CustomLinkedBlockingQueue<String> queue) {
-//            this.queue = queue;
-//        }
+        ReentrantLockArrayBlockingQueue<String> queue;
 
-        ReentrantLockLinkedBlockingQueue<String> queue;
-
-        public Consumer(ReentrantLockLinkedBlockingQueue<String> queue) {
+        public Consumer(ReentrantLockArrayBlockingQueue<String> queue) {
             this.queue = queue;
         }
 
@@ -57,18 +46,11 @@ public class UseCustomLinkedBlockingQueue {
     }
 
     public static void main(String[] args) {
-//        CustomLinkedBlockingQueue<String> queue = new CustomLinkedBlockingQueue<>();
-        ReentrantLockLinkedBlockingQueue<String> queue = new ReentrantLockLinkedBlockingQueue<>(3);
+        ReentrantLockArrayBlockingQueue<String> queue = new ReentrantLockArrayBlockingQueue<>(2);
         Producer producer1 = new Producer(queue);
-        Producer producer2 = new Producer(queue);
         Consumer consumer = new Consumer(queue);
         new Thread(producer1, "Producer1").start();
-        new Thread(producer2, "Producer2").start();
         new Thread(consumer, "Consumer").start();
     }
 
-
-
-
 }
-

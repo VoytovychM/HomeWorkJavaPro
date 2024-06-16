@@ -1,39 +1,37 @@
 package homework20240603;
 
 import java.util.ArrayDeque;
-import java.util.LinkedList;
 import java.util.Queue;
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 //Переписать класс ReentrantLockLinkedBlockingQueue (См. код в репозитории) так, чтобы
 //очередь была на основе массива (ArrayDeque)
 //размер очереди задавался через параметр size в конструкторе
 //при попытки положить элемент в заполненную очередь поток-продьюсер ожидал бы освобождение места
-public class ReentrantLockLinkedBlockingQueue<T> {
+public class ReentrantLockArrayBlockingQueue<T> {
 
+    private final Queue<T> queue;
 
-    private int maxSize;
-    private Queue<T> queue;
-    private ReentrantLock lock = new ReentrantLock(true);
+    private final int capacity;
+    private final ReentrantLock lock = new ReentrantLock(true);
 
-    private Condition condition = lock.newCondition();
+    private final Condition notEmpty = lock.newCondition();
 
-    public ReentrantLockLinkedBlockingQueue(int size) {
-       queue = new ArrayDeque<>(size);
-       this.maxSize = size;
+    private final Condition notFull = lock.newCondition();
+
+    public ReentrantLockArrayBlockingQueue(int capacity) {
+        this.capacity = capacity;
+        queue = new ArrayDeque<>(capacity);
     }
 
     public void put(T t) {
         lock.lock();
         try {
-            if(queue.size() >= this.maxSize) {
-                condition.await();
+            while (queue.size() >= capacity) {
+                notFull.awaitUninterruptibly();
             }
             queue.add(t);
-            condition.signal();
-        } catch (InterruptedException e) {
-           e.printStackTrace();
+            notEmpty.signal();
         } finally {
             lock.unlock();
         }
@@ -43,8 +41,9 @@ public class ReentrantLockLinkedBlockingQueue<T> {
         lock.lock();
         try {
             while (queue.isEmpty()) {
-                condition.awaitUninterruptibly();
+                notEmpty.awaitUninterruptibly();
             }
+            notFull.signal();
             return queue.poll();
         } finally {
             lock.unlock();

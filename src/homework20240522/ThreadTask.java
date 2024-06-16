@@ -3,6 +3,7 @@ package homework20240522;
 public class ThreadTask {
 
     public static void main(String[] args) {
+        System.out.println(Runtime.getRuntime().availableProcessors());
         long start = System.currentTimeMillis();
 
 
